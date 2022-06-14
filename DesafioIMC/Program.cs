@@ -27,8 +27,29 @@ namespace DesafioIMC
                 sexo = Console.ReadLine().ToUpper();
             } while (sexo != "F" && sexo != "M");
 
+            do
+            {
+                Console.Write("Por favor informe sua idade: ");
+                int.TryParse(Console.ReadLine(), out idade);
 
+                if (idade <= 0) { Console.WriteLine("Idade inválida"); }
+            } while (idade <= 0);
 
+            do
+            {
+                Console.Write("Por favor informe sua altura: ");
+                double.TryParse(Console.ReadLine(), out altura);
+
+                if (altura <= 0) { Console.WriteLine("Altura inválida"); }
+            } while (altura <= 0);
+
+            do
+            {
+                Console.Write("Por favor informe seu peso: ");
+                double.TryParse(Console.ReadLine(), out peso);
+
+                if (peso <= 0) { Console.WriteLine("Peso inválido"); }
+            } while (peso <= 0);
 
 
 
