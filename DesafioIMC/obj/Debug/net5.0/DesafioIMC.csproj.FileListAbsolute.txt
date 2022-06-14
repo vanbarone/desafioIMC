@@ -1,0 +1,16 @@
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.exe
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.deps.json
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.runtimeconfig.json
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.runtimeconfig.dev.json
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.dll
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\bin\Debug\net5.0\DesafioIMC.pdb
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.csproj.AssemblyReference.cache
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.AssemblyInfoInputs.cache
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.AssemblyInfo.cs
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.csproj.CoreCompileInputs.cache
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.dll
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\refint\DesafioIMC.dll
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.pdb
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\DesafioIMC.genruntimeconfig.cache
+C:\Estudo\Cursos\BRQ\Projetos\DesafioIMC\DesafioIMC\obj\Debug\net5.0\ref\DesafioIMC.dll
