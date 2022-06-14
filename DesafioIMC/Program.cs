@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace DesafioIMC
 {
@@ -47,10 +48,13 @@ namespace DesafioIMC
             {
                 Console.Write("Por favor informe sua altura em metros: ");
                 double.TryParse(Console.ReadLine(), out altura);
+                //double.TryParse(Console.ReadLine(),NumberStyles.AllowDecimalPoint, new CultureInfo("pt-br"), out altura)
+
                 altura = Math.Round(altura, 2);
 
                 if (altura <= 0 || altura > ALTURA_MAX) { Console.WriteLine("Altura inválida"); }
             } while (altura <= 0 || altura > ALTURA_MAX);
+
 
             do
             {
@@ -79,7 +83,7 @@ namespace DesafioIMC
             Console.WriteLine($"Categoria: {PegaCategoria(idade)}\n");
             Console.WriteLine($"IMC Desejável: entre 20 e 24\n");
 
-            Console.WriteLine($"Resultado IMC: {imc}\n");
+            Console.WriteLine($"Resultado IMC: {imc} ({PegaDescricaoIMC(imc)})\n");
 
             Console.WriteLine($"Riscos: {AvaliaRisco(imc)}\n");
             Console.WriteLine($"Recomendação inicial: {SugereRecomendacao(imc)}");
@@ -112,6 +116,30 @@ namespace DesafioIMC
             else
             {
                 return "Idoso";
+            }
+        }
+
+        private static string PegaDescricaoIMC(double imc)
+        {
+            if (imc < 20)
+            {
+                return "Abaixo do Peso Ideal";
+            }
+            else if (imc <= 24)
+            {
+                return "Peso Normal";
+            }
+            else if (imc <= 29)
+            {
+                return "Excesso de Peso";
+            }
+            else if (imc <= 35)
+            {
+                return "Obesidade";
+            }
+            else
+            {
+                return "Super Obesidade";
             }
         }
 
