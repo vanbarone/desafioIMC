@@ -7,7 +7,8 @@ namespace DesafioIMC
     {
         static void Main(string[] args)
         {
-            //declaração das variáveis e constantes
+            #region "Declaração das variáveis e constantes"
+            //declaração das variáveis 
             string nome = "";
             string sexo = "";
             int idade = 0;
@@ -15,83 +16,104 @@ namespace DesafioIMC
             double peso = 0;
             double imc = 0;
 
+            //declaração das constantes
             const double IDADE_MAX = 130;
             const double ALTURA_MAX = 2.5;
             const double PESO_MAX = 200.0;
+            #endregion 
 
-
-            //informa o usuário sobre o objetivo do programa
+            //imprime no console informações sobre o programa para o usuário saber o que ele irá fazer
             Console.WriteLine("Olá");
             Console.WriteLine("Faremos agora um diagnóstico prévio da sua saúde\n");
-            Console.WriteLine("Para isso precisamos de algumas informações =>");
+            Console.WriteLine("Para isso precisamos de algumas informações =>\n");
 
+            //leitura das informações do usuário, com validação dos dados
+            #region "entrada dos dados"
 
-            //leitura das informações do usuário
-            Console.Write("Por favor informe seu nome: ");
-            nome = Console.ReadLine();
-
+            //nome não pode ficar em branco
             do
             {
-                Console.Write("Por favor informe seu sexo (digite 'F' para Feminino ou 'M' para Masculino): ");
+                Console.Write("Por favor informe seu nome: ");
+                nome = Console.ReadLine().Trim();
+            } while (nome == "");
+
+            //sexo tem que ser 'F/f' ou 'M/m'
+            do
+            {
+                Console.Write("Por favor informe seu sexo (digite 'F/f' para Feminino ou 'M/m' para Masculino): ");
                 sexo = Console.ReadLine().ToUpper();
             } while (sexo != "F" && sexo != "M");
 
+            //idade tem que ser maior que 0 e menor que a idade máxima estipulada acima
             do
             {
                 Console.Write("Por favor informe sua idade: ");
                 int.TryParse(Console.ReadLine(), out idade);
 
-                if (idade <= 0 || idade > IDADE_MAX) { Console.WriteLine("Idade inválida"); }
+                if (idade <= 0 || idade > IDADE_MAX) { Console.WriteLine($"Idade inválida: {idade} (tem que ser número inteiro maior que 0 e menor que {IDADE_MAX})"); }
             } while (idade <= 0 || idade > IDADE_MAX);
 
+            //altura tem que ser maior que 0 e menor que a altura máxima estipulada acima (separador decimal aceita '.' ou ',')
             do
             {
                 Console.Write("Por favor informe sua altura em metros: ");
-                double.TryParse(Console.ReadLine(), out altura);
-                //double.TryParse(Console.ReadLine(),NumberStyles.AllowDecimalPoint, new CultureInfo("pt-br"), out altura)
-
+                double.TryParse(Console.ReadLine().Replace(",","."), NumberStyles.Number, CultureInfo.InvariantCulture, out altura);
+                
                 altura = Math.Round(altura, 2);
 
-                if (altura <= 0 || altura > ALTURA_MAX) { Console.WriteLine("Altura inválida"); }
+                if (altura <= 0 || altura > ALTURA_MAX) { Console.WriteLine($"Altura inválida: {altura} (A altura tem que ser maior que 0 e menor que {ALTURA_MAX})"); }
             } while (altura <= 0 || altura > ALTURA_MAX);
 
-
+            //peso tem que ser maior que 0 e menor que o peso máximo estipulado acima (separador decimal aceita '.' ou ',')
             do
             {
                 Console.Write("Por favor informe seu peso em kg: ");
-                double.TryParse(Console.ReadLine(), out peso);
+                double.TryParse(Console.ReadLine().Replace(",", "."), NumberStyles.Number, CultureInfo.InvariantCulture, out peso);
+
                 peso = Math.Round(peso, 1);
 
-                if (peso <= 0 || peso > PESO_MAX) { Console.WriteLine("Peso inválido"); }
+                if (peso <= 0 || peso > PESO_MAX) { Console.WriteLine($"Peso inválido: {peso} (O peso tem que ser maior que 0 e menor que {PESO_MAX})"); }
             } while (peso <= 0 || peso > PESO_MAX);
+            #endregion 
 
-            
             //calcula IMC
             imc = CalculaIMC(altura, peso);
 
-
-            //mostra as informações para o usuário
+            //imprime no console as informações para o usuário
+            #region "impressão do resultado do diagnóstico"
             Console.Clear();
-            Console.WriteLine("=========================================================================================");
-            Console.WriteLine("DIAGNÓSTICO PRÉVIO\n");
+
+            ImprimeLinha();
+            Console.WriteLine();
+            Console.WriteLine("DIAGNÓSTICO PRÉVIO");
+            ImprimeLinha();
+
+            Console.WriteLine("\n");
             Console.WriteLine($"Nome: {nome}");
             Console.WriteLine($"Sexo: {(sexo == "F" ? "Feminino": "Masculino")}");
-            Console.WriteLine($"Idade: {idade}");
-            Console.WriteLine($"Altura: {altura}");
-            Console.WriteLine($"Peso: {peso}\n");
-
+            Console.WriteLine($"Idade: {idade} anos");
+            Console.WriteLine($"Altura: {altura} m");
+            Console.WriteLine($"Peso: {peso} kg\n\n");
+            
             Console.WriteLine($"Categoria: {PegaCategoria(idade)}\n");
+
             Console.WriteLine($"IMC Desejável: entre 20 e 24\n");
 
             Console.WriteLine($"Resultado IMC: {imc} ({PegaDescricaoIMC(imc)})\n");
 
             Console.WriteLine($"Riscos: {AvaliaRisco(imc)}\n");
+
             Console.WriteLine($"Recomendação inicial: {SugereRecomendacao(imc)}");
-            Console.WriteLine("=========================================================================================");
+
+            Console.WriteLine();
+            ImprimeLinha();
+            #endregion
         }
 
         private static double CalculaIMC(double altura, double peso)
         {
+            //função que calcula o IMC de uma pessoa, dada sua altura e seu peso
+
             double imc;
 
             imc = peso / Math.Pow(altura, 2);
@@ -101,6 +123,8 @@ namespace DesafioIMC
 
         private static string PegaCategoria(int idade)
         {
+            //função que seta a categoria de acordo com a idade
+
             if (idade <= 12)
             {
                 return "Infantil";
@@ -121,6 +145,8 @@ namespace DesafioIMC
 
         private static string PegaDescricaoIMC(double imc)
         {
+            //função que seta a descrição da faixa de peso de acordo com o IMC
+
             if (imc < 20)
             {
                 return "Abaixo do Peso Ideal";
@@ -145,6 +171,8 @@ namespace DesafioIMC
 
         private static string AvaliaRisco(double imc)
         {
+            //função que seta o risco de acordo com o IMC
+
             if (imc < 20)
             {
                 return "Muitas complicações de saúde como doenças pulmonares e cardiovasculares podem estar associadas ao baixo peso";
@@ -169,6 +197,8 @@ namespace DesafioIMC
 
         private static string SugereRecomendacao(double imc)
         {
+            //função que seta a recomendação de acordo com o IMC
+
             if (imc < 20)
             {
                 return "Inclua carboidratos simples em sua dieta, além de proteínas - indispensáveis para ganho de massa magra. Procure um profissional";
@@ -191,5 +221,14 @@ namespace DesafioIMC
             }
         }
 
+        private static void ImprimeLinha()
+        {
+            //método que preenche todo uma linha do console com um determinado caracter
+
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.Write("=");
+            }
+        }
     }
 }
