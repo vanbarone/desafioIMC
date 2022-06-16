@@ -18,8 +18,8 @@ namespace DesafioIMC
 
             //declaração das constantes
             const double IDADE_MAX = 130;
-            const double ALTURA_MAX = 2.5;
-            const double PESO_MAX = 200.0;
+            const double ALTURA_MAX = 2.6;
+            const double PESO_MAX = 600.0;
             #endregion 
 
             //imprime no console informações sobre o programa para o usuário saber o que ele irá fazer
